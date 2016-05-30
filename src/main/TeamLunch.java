@@ -10,11 +10,14 @@ public class TeamLunch {
 
     private int[] dinnersForEachCase;
 
+    private int[] tablesAmountForEachCase;
+
     public void initializeDinnersDataFromInputFile(String inputFileRoute) throws NumberFormatException, IOException {
         BufferedReader reader = new BufferedReader(new FileReader(inputFileRoute));
         casesAmount = Integer.parseInt(reader.readLine());
         loadDinnersData(reader);
         reader.close();
+        initializeTablesResults();
     }
 
     private void loadDinnersData(BufferedReader reader) throws IOException {
@@ -24,12 +27,23 @@ public class TeamLunch {
         }
     }
 
+    private void initializeTablesResults() {
+        tablesAmountForEachCase = new int[casesAmount];
+        for (int i = 0; i < casesAmount; i++) {
+            tablesAmountForEachCase[i] = -1;
+        }
+    }
+
     public int getCasesAmount() {
         return casesAmount;
     }
 
     public int[] getDinnnersForEachCase() {
         return dinnersForEachCase;
+    }
+
+    public int[] getTablesAmountForEachCase() {
+        return tablesAmountForEachCase;
     }
 
 }
