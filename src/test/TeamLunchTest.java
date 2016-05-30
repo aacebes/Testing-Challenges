@@ -107,9 +107,9 @@ public class TeamLunchTest {
     }
     
     @Test
-    public void shouldNeedOneTableWhenThereAreLessThanFiveDinners() throws NumberFormatException, IOException {
+    public void shouldNeedOneTableWhenThereAreLessThanThreeDinners() throws NumberFormatException, IOException {
         // Given
-        String inputFileRoute = "files/tests/test_less_than_five_dinners.txt";
+        String inputFileRoute = "files/tests/test_less_than_three_dinners.txt";
         teamLunch.initializeDinnersDataFromInputFile(inputFileRoute);
 
         // When
@@ -124,9 +124,9 @@ public class TeamLunchTest {
     }
     
     @Test
-    public void shouldNeedOneTablePerCoupleMinusTwoInBordersWhenMoreThanFourDinnersAndEvenNumber() throws NumberFormatException, IOException {
+    public void shouldNeedOneTablePerCoupleMinusTwoInBordersWhenMoreThanTwoDinnersAndEvenNumber() throws NumberFormatException, IOException {
         // Given
-        String inputFileRoute = "files/tests/test_more_than_four_and_even.txt";
+        String inputFileRoute = "files/tests/test_more_than_two_and_even.txt";
         teamLunch.initializeDinnersDataFromInputFile(inputFileRoute);
 
         // When
@@ -143,9 +143,9 @@ public class TeamLunchTest {
     }
     
     @Test
-    public void shouldNeedOneTablePerCoupleMinusOneInBorderWhenMoreThanFourDinnersAndOddNumber() throws NumberFormatException, IOException {
+    public void shouldNeedOneTablePerCoupleMinusOneInBorderWhenMoreThanTwoDinnersAndOddNumber() throws NumberFormatException, IOException {
         // Given
-        String inputFileRoute = "files/tests/test_more_than_four_and_odd.txt";
+        String inputFileRoute = "files/tests/test_more_than_two_and_odd.txt";
         teamLunch.initializeDinnersDataFromInputFile(inputFileRoute);
 
         // When

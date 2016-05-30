@@ -67,7 +67,7 @@ public class TeamLunch {
         
         if (dinners == 0) {
             tablesAmountForEachCase[numOfCase] = 0;
-        } else if (dinners < 5) {
+        } else if (dinners < 3) {
             tablesAmountForEachCase[numOfCase] = 1;
         } else {
             tablesAmountForEachCase[numOfCase] = (int)Math.ceil((dinners - 2) / 2);
