@@ -34,6 +34,26 @@ public class TeamLunchTest {
     }
 
     @Test
+    public void shouldCorrectlyInitilizeStructuresForResultsAfterReadingFromFile()
+            throws NumberFormatException, IOException{
+     // Given
+        String inputFileRoute = "files/tests/test_input.txt";
+
+        // When
+        teamLunch.initializeDinnersDataFromInputFile(inputFileRoute);
+
+        // Then
+        int casesAmount = teamLunch.getCasesAmount();
+        assertThat(casesAmount, is(3));
+
+        int[] tablesAmountForEachCase = teamLunch.getTablesAmountForEachCase();
+        assertThat(tablesAmountForEachCase.length, is(casesAmount));
+        for (int i = 0; i < teamLunch.getCasesAmount(); i++) {
+            assertThat(tablesAmountForEachCase[i], is(-1));
+        }
+    }
+    
+    @Test
     public void outputTest() {
         fail("Not yet implemented");
     }
