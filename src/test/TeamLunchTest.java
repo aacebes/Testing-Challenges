@@ -3,7 +3,6 @@ package test;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

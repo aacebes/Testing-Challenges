@@ -55,4 +55,8 @@ public class TeamLunch {
         }
         writer.close();
     }
+    
+    public void sitPeople() {
+        tablesAmountForEachCase[0] = 0;
+    }
 }
