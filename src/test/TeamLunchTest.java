@@ -1,9 +1,12 @@
 package test;
 
+import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 
 import org.junit.Test;
@@ -35,8 +38,8 @@ public class TeamLunchTest {
 
     @Test
     public void shouldCorrectlyInitilizeStructuresForResultsAfterReadingFromFile()
-            throws NumberFormatException, IOException{
-     // Given
+            throws NumberFormatException, IOException {
+        // Given
         String inputFileRoute = "files/tests/test_input.txt";
 
         // When
@@ -52,10 +55,23 @@ public class TeamLunchTest {
             assertThat(tablesAmountForEachCase[i], is(-1));
         }
     }
-    
+
     @Test
-    public void outputTest() {
-        fail("Not yet implemented");
+    public void shouldCreateAnOutputFileWithOneLineDescribingEachCase() throws IOException {
+        // Given
+        String outputFileRoute = "files/tests/test_output.txt";
+
+        // When
+        teamLunch.writeResultsInFile(outputFileRoute);
+
+        // Then
+        BufferedReader reader = new BufferedReader(new FileReader(outputFileRoute));
+        int[] tablesAmountForEachCase = teamLunch.getTablesAmountForEachCase();
+        for (int i = 0; i < teamLunch.getCasesAmount(); i++) {
+            assertThat(reader.readLine(), equalTo("Case #" + i + ": " + tablesAmountForEachCase[0]));
+        }
+        assertThat(reader.read(), is(-1));
+        reader.close();
     }
 
     @Test
