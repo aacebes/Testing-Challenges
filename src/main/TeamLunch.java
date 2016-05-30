@@ -62,6 +62,8 @@ public class TeamLunch {
                 tablesAmountForEachCase[i] = 0;
             } else if (dinnersForEachCase[i] < 5) {
                 tablesAmountForEachCase[i] = 1;
+            } else if ((dinnersForEachCase[i] > 4) && (dinnersForEachCase[i] % 2 == 0)){
+                tablesAmountForEachCase[i] = (dinnersForEachCase[i] - 2) / 2;
             }
         }
     }
