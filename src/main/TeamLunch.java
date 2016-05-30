@@ -1,7 +1,9 @@
 package main;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class TeamLunch {
@@ -46,4 +48,11 @@ public class TeamLunch {
         return tablesAmountForEachCase;
     }
 
+    public void writeResultsInFile(String outputFileRoute) throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter(outputFileRoute));
+        for (int i = 0; i < casesAmount; i++) {
+            writer.write("Case #" + (i + 1) + ": " + tablesAmountForEachCase[i] + "\n");
+        }
+        writer.close();
+    }
 }
