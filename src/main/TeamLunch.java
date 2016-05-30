@@ -13,11 +13,15 @@ public class TeamLunch {
     public void initializeDinnersDataFromInputFile(String inputFileRoute) throws NumberFormatException, IOException {
         BufferedReader reader = new BufferedReader(new FileReader(inputFileRoute));
         casesAmount = Integer.parseInt(reader.readLine());
+        loadDinnersData(reader);
+        reader.close();
+    }
+
+    private void loadDinnersData(BufferedReader reader) throws IOException {
         dinnersForEachCase = new int[casesAmount];
         for (int i = 0; i < casesAmount; i++) {
             dinnersForEachCase[i] = Integer.parseInt(reader.readLine());
         }
-        reader.close();
     }
 
     public int getCasesAmount() {
