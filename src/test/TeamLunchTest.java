@@ -141,4 +141,23 @@ public class TeamLunchTest {
             assertThat(tablesAmountForEachCase[i], is(tables));
         }
     }
+    
+    @Test
+    public void shouldNeedOneTablePerCoupleMinusOneInBorderWhenMoreThanFourDinnersAndOddNumber() throws NumberFormatException, IOException {
+        // Given
+        String inputFileRoute = "files/tests/test_more_than_four_and_odd.txt";
+        teamLunch.initializeDinnersDataFromInputFile(inputFileRoute);
+
+        // When
+        teamLunch.sitPeople();
+
+        // Then
+        int casesAmount = teamLunch.getCasesAmount();
+        int[] dinnersForEachCase = teamLunch.getDinnnersForEachCase();
+        int[] tablesAmountForEachCase = teamLunch.getTablesAmountForEachCase();
+        for (int i = 0; i < casesAmount; i++) {
+            int tables = (dinnersForEachCase[i] - 1) / 2;
+            assertThat(tablesAmountForEachCase[i], is(tables));
+        }
+    }
 }
