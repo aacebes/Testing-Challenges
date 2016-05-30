@@ -1,6 +1,10 @@
 package test;
 
-import static org.junit.Assert.*;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
+
+import java.io.IOException;
 
 import org.junit.Test;
 
@@ -11,7 +15,7 @@ public class TeamLunchTest {
     TeamLunch teamLunch = new TeamLunch();
 
     @Test
-    public void shouldCorrectlyInitializeDataStructureFromAnInputFile() throws FileNotFoundException {
+    public void shouldCorrectlyInitializeDataStructureFromAnInputFile() throws NumberFormatException, IOException {
         // Given
         String inputFileRoute = "files/tests/test_input.txt";
 
