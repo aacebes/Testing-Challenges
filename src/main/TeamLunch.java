@@ -55,8 +55,10 @@ public class TeamLunch {
         }
         writer.close();
     }
-    
+
     public void sitPeople() {
-        tablesAmountForEachCase[0] = 0;
+        for (int i = 0; i < dinnersForEachCase.length; i++) {
+            tablesAmountForEachCase[i] = 0;
+        }
     }
 }
