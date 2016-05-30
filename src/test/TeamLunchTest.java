@@ -105,4 +105,21 @@ public class TeamLunchTest {
         }
         assertThat(tablesAmountForEachCase[0], is(0));
     }
+    
+    @Test
+    public void shouldNeedOneTableWhenThereAreLessThanFiveDinners() throws NumberFormatException, IOException {
+        // Given
+        String inputFileRoute = "files/tests/test_less_than_five_dinners.txt";
+        teamLunch.initializeDinnersDataFromInputFile(inputFileRoute);
+
+        // When
+        teamLunch.sitPeople();
+
+        // Then
+        int casesAmount = teamLunch.getCasesAmount();
+        int[] tablesAmountForEachCase = teamLunch.getTablesAmountForEachCase();
+        for (int i = 0; i < casesAmount; i++) {
+            assertThat(tablesAmountForEachCase[i], is(1));
+        }
+    }
 }
