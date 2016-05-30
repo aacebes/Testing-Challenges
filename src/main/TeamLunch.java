@@ -58,7 +58,11 @@ public class TeamLunch {
 
     public void sitPeople() {
         for (int i = 0; i < dinnersForEachCase.length; i++) {
-            tablesAmountForEachCase[i] = 0;
+            if (dinnersForEachCase[i] == 0) {
+                tablesAmountForEachCase[i] = 0;
+            } else if (dinnersForEachCase[i] < 5) {
+                tablesAmountForEachCase[i] = 1;
+            }
         }
     }
 }
