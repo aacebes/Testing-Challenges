@@ -75,12 +75,12 @@ public class TeamLunch {
     }
 
     public static void main(String[] args) {
-        String inputFile = "files/input/test_input.txt";
+        String inputFile = "files/input/submit_input.txt";
         TeamLunch teamLunch = new TeamLunch();
         try {
             teamLunch.initializeDinnersDataFromInputFile(inputFile);
             teamLunch.sitPeople();
-            teamLunch.writeResultsInFile("files/input/test_output.txt");
+            teamLunch.writeResultsInFile("files/input/submit_output.txt");
         }
         // In case file doesn't exist or can't be readed/writed.
         catch (IOException e) {
