@@ -86,4 +86,23 @@ public class TeamLunchTest {
         int[] tablesAmountForEachCase = teamLunch.getTablesAmountForEachCase();
         assertThat(tablesAmountForEachCase[0], is(0));
     }
+    
+    @Test
+    public void shouldGoThroughAllCasesInTheProcessMethod() throws NumberFormatException, IOException {
+        // Given
+        String inputFileRoute = "files/tests/test_multiple_cases.txt";
+        teamLunch.initializeDinnersDataFromInputFile(inputFileRoute);
+
+        // When
+        teamLunch.sitPeople();
+
+        // Then
+        int casesAmount = teamLunch.getCasesAmount();
+        assertThat(casesAmount, is(10));
+        int[] tablesAmountForEachCase = teamLunch.getTablesAmountForEachCase();
+        for (int i = 0; i < casesAmount; i++) {
+            assertThat(tablesAmountForEachCase[i], is(0));
+        }
+        assertThat(tablesAmountForEachCase[0], is(0));
+    }
 }
