@@ -75,7 +75,16 @@ public class TeamLunchTest {
     }
 
     @Test
-    public void algorithmTest() {
-        fail("Not yet implemented");
+    public void shouldNeedZeroTableWhenThereAreNoDinners() throws NumberFormatException, IOException {
+        // Given
+        String inputFileRoute = "files/tests/test_zero_dinners.txt";
+        teamLunch.initializeDinnersDataFromInputFile(inputFileRoute);
+
+        // When
+        teamLunch.sitPeople();
+
+        // Then
+        int[] tablesAmountForEachCase = teamLunch.getTablesAmountForEachCase();
+        assertThat(tablesAmountForEachCase[0], is(0));
     }
 }
